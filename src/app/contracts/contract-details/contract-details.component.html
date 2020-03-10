@@ -1,0 +1,16 @@
+<div class="jumbotron" *ngIf="contract">
+  <div class="nav-justified">
+    <div class="row">
+      <div class="col-sm-4">Nazwa klienta</div>
+      <div class="col-sm-8">{{contract.customerName}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">Data zawarcia</div>
+      <div class="col-sm-8">{{contract.date | date: 'dd-MM-yyyy'}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">Wartość</div>
+      <div class="col-sm-8">{{contract.value}}</div>
+    </div>
+  </div>
+</div>
