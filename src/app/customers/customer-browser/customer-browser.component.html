@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <select [(ngModel)]="customer">
+      <option [ngValue]="null">wybierz</option>
+      <option *ngFor="let c of customers" [ngValue]="c">{{c.name}}</option>
+    </select>
+    <button class="btn btn-danger" (click)="deleteCustomer()" style="margin: 5px">Usuń</button>
+  </div>
+  <app-customer-details [customer]="customer" (shift)="onShift($event)" *ngIf="customer&&customer.address"></app-customer-details>
+</div>
+
