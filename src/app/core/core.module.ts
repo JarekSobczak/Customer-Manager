@@ -6,6 +6,9 @@ import {Config, CONFIG} from '../model';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {RouterModule} from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {AuthenticateGuard} from './authenticate-guard.service';
+import {AuthenticationService} from './authentication.service';
+import {CommonModule} from '@angular/common';
 
 
 const config: Config = {
@@ -14,13 +17,16 @@ const config: Config = {
 
 @NgModule({
   providers: [
+    AuthenticationService,
+    AuthenticateGuard,
     MessageService,
     {provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true},
     {provide: CONFIG, useValue: config}
   ],
   declarations: [NavBarComponent, NotFoundComponent],
   imports: [
-    RouterModule
+    RouterModule,
+    CommonModule
   ],
   exports: [NavBarComponent]
 })

@@ -15,11 +15,9 @@ export class ContractDetailsComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private contractService: ContractService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(param=>{
-      const id = parseInt(param['id']);
-      this.contractService.getContract(id).subscribe(contract=>{
-        this.contract=contract;
-      });
+
+    this.activatedRoute.data.subscribe(data=>{
+      this.contract = data.contract;
     })
   }
 

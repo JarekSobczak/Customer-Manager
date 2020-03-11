@@ -5,10 +5,12 @@ import {CustomerDetailsComponent} from './customer-details/customer-details.comp
 import {CustomerService} from './customer.service';
 import {SharedModule} from '../shared/shared.module';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthenticateGuard} from '../core/authenticate-guard.service';
+import {CustomerAddDeactivateGuard} from './customer-add-deactivate-guard.service';
 
 const routes : Routes = [
     { path: 'customers', component: CustomerBrowserComponent },
-    { path: 'customers/add', component: CustomerAddComponent }
+    { path: 'customers/add', component: CustomerAddComponent, canActivate:[AuthenticateGuard], canDeactivate:[CustomerAddDeactivateGuard] }
   ];
 
 @NgModule({
@@ -16,6 +18,7 @@ const routes : Routes = [
     CustomerBrowserComponent,
     CustomerDetailsComponent],
   providers:[
+    CustomerAddDeactivateGuard,
     CustomerService
   ],
   exports:[
