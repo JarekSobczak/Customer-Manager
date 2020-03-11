@@ -7,7 +7,7 @@ import {ContractService} from './contract.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ContractResolver implements Resolve<Contract>{
+export class ContractResolverService implements Resolve<Contract>{
 
   constructor(private contractService: ContractService) { }
 

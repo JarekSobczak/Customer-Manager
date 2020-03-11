@@ -9,9 +9,10 @@ import {CustomersModule} from './customers/customers.module';
 import {CoreModule} from './core/core.module';
 import {RouterModule, Routes} from '@angular/router';
 import {NotFoundComponent} from './core/not-found/not-found.component';
+import {ContractsModule} from './contracts/contracts.module';
 
 const routes:Routes = [
-  {path: 'contracts', loadChildren:'app/contracts/contracts.module#Contacts.module'},
+
   { path: '', redirectTo: 'customers', pathMatch: 'full' },
   { path: '**', component:NotFoundComponent }
 ];
@@ -26,7 +27,8 @@ const routes:Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    CustomersModule
+    CustomersModule,
+    ContractsModule
   ],
   bootstrap: [AppComponent]
 })
